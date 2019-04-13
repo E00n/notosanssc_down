@@ -88,7 +88,10 @@ rl.on("close", function() {
         // 替换链接地址
         fs.writeFile(
           "notosanssc.css",
-          data.replace(/https:\/\/fonts.gstatic.*?.*\//g, cdnName + "/"),
+          data.replace(
+            /https:\/\/fonts.gstatic.*?.*\//g,
+            cdnName ? cdnName + "/notosanssc/" : "./notosanssc/"
+          ),
           "utf8",
           () => {
             console.log("地址替换成功");
